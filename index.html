@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Solve 1</h1>
+    <div>
+        <form name="solve1">
+            <!-- input time and fps -->
+            <div class="basic">
+                <input type="text" id="time" placeholder="time">
+                <input type="text" id="fps" placeholder="fps">
+                <br><br>
+            </div>
+            <!-- textarea that makes inputting the entire reconstruction considerably easier -->
+            <div>
+                <textarea name="" id="unfrecon" cols="50" rows="10" placeholder="recon"></textarea>
+                <textarea name="" id="unfsplits" cols="30" rows="10" placeholder="splits"></textarea>
+                <button onclick="reformat()">Input</button>
+                <br><br>
+            </div>
+            <!-- the input tags for the entire reconstruction itself -->
+            <div>
+                <input type="text" class="solve" id="inspec" placeholder="inspection">
+                <br>
+                <input type="text" class="solve" id="cross" placeholder="cross">
+                <br>
+                <input type="text" class="solve" id="f2l1" placeholder="f2l1">
+                <br>
+                <input type="text" class="solve" id="f2l2" placeholder="f2l2">
+                <br>
+                <input type="text" class="solve" id="f2l3" placeholder="f2l3">
+                <br>
+                <input type="text" class="solve" id="f2l4" placeholder="f2l4">
+                <br>
+                <input type="text" class="solve" id="oll" placeholder="oll">
+                <br>
+                <input type="text" class="solve" id="pll" placeholder="pll">
+                <br>
+            </div>
+            <!-- input tags for inputting the different frame splits -->
+            <div>
+                <br>
+                <input type="text" class="frames" name="start" id="start" placeholder="start">
+                <br>
+                <input type="text" class="frames" name="c" id="c" placeholder="cross">
+                <br>
+                <input type="text" class="frames" name="f1" id="1" placeholder="f2l1">
+                <br>
+                <input type="text" class="frames" name="f2" id="2" placeholder="f2l2">
+                <br>
+                <input type="text" class="frames" name="f3" id="3" placeholder="f2l3"> 
+                <br>
+                <input type="text" class="frames" name="f4" id="4" placeholder="f2l4">
+                <br>
+                <input type="text" class="frames" name="o" id="o" placeholder="oll">
+                <br>
+            </div>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+    <br>
+    <!-- here we output the statistics -->
+    <div class="stats">
+        <table border="1px">
+            <!-- the basic stats return just the time taken, moves, tps etc of very individual step -->
+            <th>Basic</th>
+            <tr>
+               <td>step</td>
+               <td>STM</td>
+               <td>Time</td>
+               <td>STPS</td>
+            </tr>
+            <tr>
+                <td>cross</td>
+                <td id="cstm"></td>
+                <td id="ctime"></td>
+                <td id="ctps"></td>
+            </tr>
+            <tr>
+                <td>f2l1</td>
+                <td id="1stm"></td>
+                <td id="1time"></td>
+                <td id="1tps"></td>
+            </tr>
+            <tr>
+                <td>f2l2</td>
+                <td id="2stm"></td>
+                <td id="2time"></td>
+                <td id="2tps"></td>
+            </tr>
+            <tr>
+                <td>f2l3</td>
+                <td id="3stm"></td>
+                <td id="3time"></td>
+                <td id="3tps"></td>
+            </tr>
+            <tr>
+                <td>f2l4</td>
+                <td id="4stm"></td>
+                <td id="4time"></td>
+                <td id="4tps"></td>
+            </tr>
+            <tr>
+                <td>oll</td>
+                <td id="ostm"></td>
+                <td id="otime"></td>
+                <td id="otps"></td>
+            </tr>
+            <tr>
+                <td>pll</td>
+                <td id="pstm"></td>
+                <td id="ptime"></td>
+                <td id="ptps"></td>
+            </tr>
+            <tr>
+                <td>total</td>
+                <td id="tmove"></td>
+                <td id="ttime"></td>
+                <td id="ttps"></td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <div>
+        <table border="1px">
+            <!-- the better stats return the stats as they are shown on reco.nz -->
+            <th>Better </th>
+            <tr>
+                <td>hi</td>
+                <td>Total</td>
+                <td>F2L</td>
+                <td>LL</td>
+                <td>Cross+1</td>
+                <td>OLS</td>
+                <td>PLL</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td id="ttime2"></td>
+                <td id="f2ltime"></td>
+                <td id="lltime"></td>
+                <td id="cptime"></td>
+                <td id="olstime"></td>
+                <td id="ptime2"></td>
+            </tr>
+            <tr>
+                <td>Split</td>
+                <td id="tsplit"></td>
+                <td id="f2lsplit"></td>
+                <td id="llsplit"></td>
+                <td id="cpsplit"></td>
+                <td id="olssplit"></td>
+                <td id="pllsplit"></td>
+            </tr>
+            <tr>
+                <td>STM</td>
+                <td id="tstm"></td>
+                <td id="f2lstm"></td>
+                <td id="llstm"></td>
+                <td id="cpstm"></td>
+                <td id="olsstm"></td>
+                <td id="pllstm"></td>
+            </tr>
+            <tr>
+                <td>STPS</td>
+                <td id="tstps"></td>
+                <td id="f2lstps"></td>
+                <td id="llstps"></td>
+                <td id="cpstps"></td>
+                <td id="olsstps"></td>
+                <td id="pllstps"></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
