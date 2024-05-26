@@ -38,7 +38,6 @@ let numberOfSolves = parseInt(reconstruction.solves.length);
 let currentSolveNumber = 1;
 
 
-
 // MAKING BUTTONS and variables to store solves
 let buttons = "";
 for (let i = 0; i < numberOfSolves; i++) {
@@ -46,9 +45,8 @@ for (let i = 0; i < numberOfSolves; i++) {
     }</button>`;
 }
 document.getElementById("buttons").innerHTML = buttons;
-;
 
-// I NEED A DATA CHANGER
+// I NEED A DATA CHANGER (what?)
 //looping event listener for all buttons
 for (let i = 0; i < numberOfSolves; i++) {
   document.getElementById(`solve${i + 1}btn`).addEventListener("click", function () {
@@ -61,9 +59,9 @@ for (let i = 0; i < numberOfSolves; i++) {
     document.getElementById("heading").innerHTML = `SOLVE ${currentSolveNumber}`;
     document.getElementById("scramble").innerHTML = scram;
     let scramSerialized = encodeURIComponent(scram);
-    document.getElementById(
-      "alg.cubing.net"
-    ).src = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
+    document.getElementById("alg.cubing.net").src = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
+    document.getElementById("link").href = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
+    document.getElementById("link").target = `_blank`;
     let time = document.getElementById("time").value;
   })
 }
@@ -73,11 +71,12 @@ document.getElementById("title").innerHTML = `SOLVE ${currentSolveNumber}`;
 document.getElementById("heading").innerHTML = `SOLVE ${currentSolveNumber}`;
 document.getElementById("scramble").innerHTML = scram;
 let scramSerialized = encodeURIComponent(scram);
-document.getElementById(
-  "alg.cubing.net"
-).src = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
+document.getElementById("alg.cubing.net").src = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
 let fps = document.getElementById("fps").value;
 let time = document.getElementById("time").value;
+document.getElementById("link").href = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
+document.getElementById("link").target = `_blank`;
+
 
 // READING RECON AND SPLITS
 // reconmaker is the func that is called at the click of the submit button
@@ -226,15 +225,16 @@ function timeAdder(splits, solve) {
     solve[i].STPS = solve[i].STM * (1 / solve[i].time);
     solve[i].STPS = Math.round(solve[i].STPS * 100) / 100;
     solve[i].ETPS = solve[i].ETM * (1 / solve[i].time);
-    solve[i].ETPS = Math.round(solve[i].ETPS * 100) / 100;
-    solve[i].time = Math.round(solve[i].time * 100) / 100;
+    solve[i].ETPS = Math.round(solve[i].ETPS * 1000) / 1000;
+    solve[i].time = Math.round(solve[i].time * 1000) / 1000;
   }
+  let time = document.getElementById("time").value;
   let x = solve.length - 1;
   solve[x].time = time;
   solve[x].STPS = solve[x].STM / solve[x].time;
   solve[x].ETPS = solve[x].ETM / solve[x].time;
-  solve[x].ETPS = Math.round(solve[x].ETPS * 100) / 100;
-  solve[x].STPS = Math.round(solve[x].STPS * 100) / 100;
+  solve[x].ETPS = Math.round(solve[x].ETPS * 1000) / 1000;
+  solve[x].STPS = Math.round(solve[x].STPS * 1000) / 1000;
   return solve;
 }
 
@@ -259,6 +259,7 @@ function splitSplitter() {
     splits[i] = parseFloat(splits[i]);
     console.log(`split${i + 1}=${splits[i]}`);
   }
+  let time = document.getElementById("time").value;
   splits.push(fps * time + splits[0]);
   console.log(`splits${splits.length}=${splits[splits.length - 1]}`);
   return splits;
