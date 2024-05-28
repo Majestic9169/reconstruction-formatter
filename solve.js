@@ -34,6 +34,7 @@ document.getElementById("fps").value = parseFloat(getCookie("fps"));
 let timeElement = document.getElementById("time");
 timeElement.value = parseFloat(reconstruction.solves[0][0]);
 let scram = reconstruction.solves[0][1];
+let scramSerialized = encodeURIComponent(scram);
 let numberOfSolves = parseInt(reconstruction.solves.length);
 let currentSolveNumber = 1;
 
@@ -59,7 +60,7 @@ for (let i = 0; i < numberOfSolves; i++) {
     document.getElementById("title").innerHTML = `SOLVE ${currentSolveNumber}`;
     document.getElementById("heading").innerHTML = `SOLVE ${currentSolveNumber}`;
     document.getElementById("scramble").innerHTML = scram;
-    let scramSerialized = encodeURIComponent(scram);
+    scramSerialized = encodeURIComponent(scram);
     document.getElementById("alg.cubing.net").src = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
     document.getElementById("link").href = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
   document.getElementById("link").target = `_blank`;
@@ -71,7 +72,6 @@ for (let i = 0; i < numberOfSolves; i++) {
 document.getElementById("title").innerHTML = `SOLVE ${currentSolveNumber}`;
 document.getElementById("heading").innerHTML = `SOLVE ${currentSolveNumber}`;
 document.getElementById("scramble").innerHTML = scram;
-let scramSerialized = encodeURIComponent(scram);
 document.getElementById("alg.cubing.net").src = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
 let fps = document.getElementById("fps").value;
 let time = document.getElementById("time").value;
