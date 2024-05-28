@@ -44,6 +44,7 @@ for (let i = 0; i < numberOfSolves; i++) {
   buttons += `<button class="btn" id="solve${i + 1}btn">solve ${i + 1
     }</button>`;
 }
+buttons += `<a href="recon.html" target="_blank"><button>view your recon</button></a>`
 document.getElementById("buttons").innerHTML = buttons;
 
 // I NEED A DATA CHANGER (what?)
@@ -61,7 +62,7 @@ for (let i = 0; i < numberOfSolves; i++) {
     let scramSerialized = encodeURIComponent(scram);
     document.getElementById("alg.cubing.net").src = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
     document.getElementById("link").href = `https://alg.cubing.net/?alg=&setup=${scramSerialized}`;
-    document.getElementById("link").target = `_blank`;
+  document.getElementById("link").target = `_blank`;
     let time = document.getElementById("time").value;
   })
 }
