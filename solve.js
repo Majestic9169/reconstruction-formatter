@@ -52,6 +52,7 @@ document.getElementById("buttons").innerHTML = buttons;
 //looping event listener for all buttons
 for (let i = 0; i < numberOfSolves; i++) {
   document.getElementById(`solve${i + 1}btn`).addEventListener("click", function () {
+    table.innerHTML = "";
     timeElement.value = parseFloat(reconstruction.solves[i][0]);
     scram = reconstruction.solves[i][1];
     currentSolveNumber = i + 1;
