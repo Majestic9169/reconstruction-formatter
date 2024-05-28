@@ -310,7 +310,8 @@ function saveSolve(solve) {
   reconstruction.solves[currentSolveNumber - 1].push();
   reconstruction.solves[currentSolveNumber - 1][2] = solve;
   console.log(reconstruction);
-  setCookie("reconstruction", JSON.stringify(reconstruction), 3);
+  // setCookie("reconstruction", JSON.stringify(reconstruction), 3);
+  localStorage.setItem("reconstruction", JSON.stringify(reconstruction));
 }
 
 // EVENT LISTENER

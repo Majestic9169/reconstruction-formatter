@@ -23,7 +23,8 @@ function getCookie(name) {
 }
 
 // getting my recnostruction cookie
-let reconstruction = getCookie("reconstruction");
+// let reconstruction = getCookie("reconstruction");
+let reconstruction = localStorage.getItem("reconstruction");
 reconstruction = JSON.parse(reconstruction);
 console.log(reconstruction);
 
