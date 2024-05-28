@@ -106,12 +106,14 @@ function clickSubmit() {
   solve.unshift(inspec);
   //here we are generating a table with stats using the solve object
   let table = document.getElementById("table");
+  table.innerHTML = "";
   let data = Object.keys(solve[0]);
   generateTable(table, solve);
   generateTableHead(table, data);
   //we add the solve reconstruction to the alg.cubing.net iframe to be able to visualise it while submitting
   let url = urlMaker(recon);
   document.getElementById("alg.cubing.net").src = url;
+  document.getElementById("link").href = url;
   //we log the solve object as this is the main purpose of the enire process
   console.log(solve);
   //we display the save button so that the solve can be submitted and create an event listener for it
@@ -306,6 +308,7 @@ function saveSolve(solve) {
   reconstruction.solves[currentSolveNumber - 1].push();
   reconstruction.solves[currentSolveNumber - 1][2] = solve;
   console.log(reconstruction);
+  setCookie("reconstruction", JSON.stringify(reconstruction), 3);
 }
 
 // EVENT LISTENER
