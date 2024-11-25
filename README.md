@@ -24,6 +24,7 @@
 ## 📝 Table of Contents
 - [About](#about)
 - [Getting Started](#getting_started)
+- [Project Structure](#getting_started)
 <!-- - [Deployment](#deployment) -->
 <!-- - [Usage](#usage) -->
 <!-- - [Built Using](#built_using) -->
@@ -66,6 +67,7 @@ pnpm run dev
 ```
 
 <!-- End with an example of getting some data out of the system or using it for a little demo. -->
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ## 🔧 Running the tests <a name = "tests"></a> -->
 <!-- Explain how to run the automated tests for this system. -->
@@ -96,13 +98,51 @@ pnpm run dev
 <!-- - [VueJs](https://vuejs.org/) - Web Framework -->
 <!-- - [NodeJs](https://nodejs.org/en/) - Server Environment -->
 
+## 🏁 Project Structure <a name = "project_structure"></a>
+
+### File Structure
+
+```
+.
+├── public
+└── src
+   ├── assets
+   ├── components
+   ├── data
+   ├── styles
+   ├── utils
+   ├── pages
+   ├── constants.ts
+   └── App.tsx
+```
+
+- `public`: Contains public files such as `index.html`.
+- `src`: Contains source files (JS, SCSS, assets, etc.)
+  - `assets`: Contains assets used in the source, such as images and icons.
+  - `components`: Contains reusable react components.
+  - `data`: Contains raw data.
+  - `styles`: Contains all stylesheets (SCSS).
+  - `utils`: Contains commonly used util functions.
+  - `pages`: Contains views for each of the pages.
+  - `constants.ts`: Contains globally used constants.
+  - `App.tsx`: Contains the top-level `App` component.
+
+### Libraries/Frameworks Used
+
+- [React](https://reactjs.dev)
+- And [many more](./package.json).
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## ✍️ Authors <a name = "authors"></a>
 - [@Majestic9169](https://github.com/Majestic9169) - Idea & Initial work
 
 <!-- See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project. -->
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- README template used from [The-Documentation-Compendium](https://github.com/race2infinity/The-Documentation-Compendium/blob/master/en/README_TEMPLATES/Standard.md)
+- README template inspired by [The-Documentation-Compendium](https://github.com/race2infinity/The-Documentation-Compendium/blob/master/en/README_TEMPLATES/Standard.md)
+and [@kossiitkgp](https://github.com/kossiitkgp/KWoC-Frontend/blob/truth-redefined-again/README.md)
 - Many thanks to Stewy and all other reconstructors for their tireless work
 <!-- - References -->
+<p align="right">(<a href="#top">back to top</a>)</p>
 
