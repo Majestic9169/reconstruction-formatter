@@ -31,7 +31,6 @@ export const Submit = () => {
 
   return (
     <div className="submit-page">
-      submit page
       <div className="form-container">
         <div className="left-form-container">
           {inputFields.map(({ key, label, type, options }) => (
@@ -46,7 +45,11 @@ export const Submit = () => {
           ))}
         </div>
         <div className="right-form-container">
-          right container
+          <label className="input-label">CSTimer Dump</label>
+          <textarea
+            className="cstimer-dump"
+            placeholder="CSTimer Dump"
+          />
         </div>
       </div>
     </div>
