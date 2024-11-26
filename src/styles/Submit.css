@@ -8,7 +8,7 @@
   align-items: center;
 
   border-radius: 3rem;
-  padding: 2rem 4rem;
+  padding: 2rem 2rem;
 }
 
 .left-form-container {
@@ -17,11 +17,11 @@
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  width: 50%;
+  width: 40%;
   height: 100%;
 
-  background-color: black;
-  color: white;
+  /* background-color: black; */
+  /* color: white; */
   border-radius: 3rem;
   padding: 0.5rem 1rem;
 }

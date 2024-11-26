@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 0.8rem;
+  position: relative;
+  width: 100%;
+}
+
+.input-field input {
+  border: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  font: 0.8rem;
+}
+
+.dropdown-input {
+  appearance: none;
+  width: 100%;
+  margin: 0;
+  font-size: 0.8rem;
+  background-color: #f2f2f2;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  border: none;
+}

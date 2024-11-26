@@ -25,8 +25,8 @@ export const Submit = () => {
     { key: "event", label: "Event", type: "select", options: ["3x3", "3x3OH"] as Events[] },
     { key: "fps", label: "Frames Per Second", type: "number" },
     { key: "competition", label: "Competition", type: "text" },
-    { key: "reconstructor", label: "Reconstructed by", type: "text" },
     { key: "link", label: "Video Link", type: "text" },
+    { key: "reconstructor", label: "Reconstructed by", type: "text" },
   ];
 
   return (
