@@ -1,3 +1,5 @@
+import { cubingMoves } from "../constants";
+
 export type Events = "3x3" | "3x3 OH"
 
 export interface ReconDetails {
@@ -10,3 +12,6 @@ export interface ReconDetails {
 }
 
 export type DETAIL_KEYS = keyof ReconDetails;
+
+export type ValidMove = typeof cubingMoves[number];
+
