@@ -1,8 +1,13 @@
+import { Outlet } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
 import './styles/App.css';
 
 function App() {
   return (
-    <div id="emow">
+    <div>
+      <header>
+        <Navbar />
+      </header>
     </div>
   )
 }
