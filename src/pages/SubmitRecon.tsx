@@ -12,6 +12,7 @@ export const Submit = () => {
     reconstructor: "",
     link: ""
   });
+  const [csTimerDump, setCSTimerDump] = useState<string>("CSTimer Dump")
 
   const updateReconDetails = (key: DETAIL_KEYS, value: ReconDetails[DETAIL_KEYS]) => {
     setReconDetails(prevState => ({
@@ -19,6 +20,18 @@ export const Submit = () => {
       [key]: value,
     }));
   };
+
+  const onReset = () => {
+    setReconDetails({
+      solver: "",
+      event: "3x3",
+      fps: 30,
+      competition: "",
+      reconstructor: "",
+      link: ""
+    });
+    setCSTimerDump("");
+  }
 
   const inputFields = [
     { key: "solver", label: "Solved by", type: "text" },
@@ -31,25 +44,42 @@ export const Submit = () => {
 
   return (
     <div className="submit-page">
-      <div className="form-container">
-        <div className="left-form-container">
-          {inputFields.map(({ key, label, type, options }) => (
-            <InputField
-              key={key}
-              label={label}
-              value={ReconDetails[key as DETAIL_KEYS]}
-              onChange={(value) => updateReconDetails(key as DETAIL_KEYS, value)}
-              type={type}
-              options={options}
+      <div className="submit-container">
+        <div className="form-container">
+          <div className="left-form-container">
+            {inputFields.map(({ key, label, type, options }) => (
+              <InputField
+                key={key}
+                label={label}
+                value={ReconDetails[key as DETAIL_KEYS]}
+                onChange={(value) => updateReconDetails(key as DETAIL_KEYS, value)}
+                type={type}
+                options={options}
+              />
+            ))}
+          </div>
+          <div className="right-form-container">
+            <label className="input-label">CSTimer Dump</label>
+            <textarea
+              className="cstimer-dump"
+              placeholder="CSTimer Dump"
+              value={csTimerDump}
+              onChange={(e) => setCSTimerDump(e.target.value)}
             />
-          ))}
+          </div>
         </div>
-        <div className="right-form-container">
-          <label className="input-label">CSTimer Dump</label>
-          <textarea
-            className="cstimer-dump"
-            placeholder="CSTimer Dump"
-          />
+        <div className="button-container">
+          <button
+            className="submit"
+          >
+            Submit
+          </button>
+          <button
+            className="reset"
+            onClick={onReset}
+          >
+            Reset
+          </button>
         </div>
       </div>
     </div>
