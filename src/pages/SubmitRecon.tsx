@@ -12,7 +12,7 @@ export const Submit = () => {
     reconstructor: "",
     link: ""
   });
-  const [csTimerDump, setCSTimerDump] = useState<string>("CSTimer Dump")
+  const [csTimerDump, setCSTimerDump] = useState<string>("")
 
   const updateReconDetails = (key: DETAIL_KEYS, value: ReconDetails[DETAIL_KEYS]) => {
     setReconDetails(prevState => ({
@@ -31,6 +31,22 @@ export const Submit = () => {
       link: ""
     });
     setCSTimerDump("");
+  }
+
+  const onSubmit = () => {
+    const cleanedInput = csTimerDump.replace(/[()]/g, '');
+    // cleanedInput = cleanedInput.replace(')', '');
+    const solves = cleanedInput.split('\n');
+    const trimmedSolves = solves.map(solve => solve.trim());
+    const formattedSolves = trimmedSolves.map(entry => {
+      const match = entry.match(/(\d+\.\d+)\s+(.*)/);
+      if (match) {
+        return {
+          time: match[1], // Time is now guaranteed to be without parentheses
+          scramble: match[2]
+        };
+      }
+    });
   }
 
   const inputFields = [
@@ -71,6 +87,7 @@ export const Submit = () => {
         <div className="button-container">
           <button
             className="submit"
+            onClick={onSubmit}
           >
             Submit
           </button>
