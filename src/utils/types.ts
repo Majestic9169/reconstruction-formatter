@@ -15,3 +15,26 @@ export type DETAIL_KEYS = keyof ReconDetails;
 
 export type ValidMove = typeof cubingMoves[number];
 
+export type ValidAlg = ValidMove[];
+
+export interface Recon {
+  cross: ValidAlg;
+  f2l1: ValidAlg;
+  f2l2: ValidAlg;
+  f2l3: ValidAlg;
+  f2l4: ValidAlg;
+  oll: ValidAlg;
+  pll: ValidAlg;
+}
+
+export interface Solve {
+  time: number;
+  scram: ValidAlg;
+  recon: Recon;
+  splits: number[];
+}
+
+export interface Reconstruction {
+  details: ReconDetails;
+  solves: Solve[];
+}
