@@ -10,6 +10,7 @@ export const cubingMoves = [
   "E", "E'", "E2", "E2'",
   "x", "x'", "x2", "x2'",
   "y", "y'", "y2", "y2'",
-  "z", "z'", "z2", "z2'"
+  "z", "z'", "z2", "z2'",
+  " ", ""
 ] as const;
 

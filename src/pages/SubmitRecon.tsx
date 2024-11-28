@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { DETAIL_KEYS, Events, ReconDetails } from "../utils/types";
+import { DETAIL_KEYS, Events, Recon, ReconDetails, Reconstruction, Solve } from "../utils/types";
 import "../styles/Submit.css";
 import { InputField } from "../components/InputFields";
+import { cubingMoves } from "../constants";
 
 export const Submit = () => {
   const [ReconDetails, setReconDetails] = useState<ReconDetails>({
@@ -13,6 +14,10 @@ export const Submit = () => {
     link: ""
   });
   const [csTimerDump, setCSTimerDump] = useState<string>("")
+  const [reconstruction, setReconstruction] = useState<Reconstruction>({
+    details: ReconDetails,
+    solves: []
+  })
 
   const updateReconDetails = (key: DETAIL_KEYS, value: ReconDetails[DETAIL_KEYS]) => {
     setReconDetails(prevState => ({
@@ -47,6 +52,25 @@ export const Submit = () => {
         };
       }
     });
+    setReconstruction(() => ({
+      details: ReconDetails,
+      solves: [
+        ...formattedSolves.map(solve => ({
+          scram: solve?.scramble,
+          time: Number(solve?.time),
+          recon: {
+            cross: "",
+            f2l1: "",
+            f2l2: "",
+            f2l3: "",
+            f2l4: "",
+            oll: "",
+            pll: ""
+          },
+          splits: []
+        }))
+      ]
+    }));
   }
 
   const inputFields = [

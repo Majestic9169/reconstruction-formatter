@@ -15,7 +15,7 @@ export type DETAIL_KEYS = keyof ReconDetails;
 
 export type ValidMove = typeof cubingMoves[number];
 
-export type ValidAlg = ValidMove[];
+export type ValidAlg = `${ValidMove}${ValidAlg}` | ``;
 
 export interface Recon {
   cross: ValidAlg;
