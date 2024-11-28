@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import { ErrorPage } from "../pages/ErrorPage";
 import { Submit } from "../pages/SubmitRecon";
-import { Solve } from "../pages/SubmitSolve";
+import { SolveComponent } from "../pages/SubmitSolve";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +16,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/solve/:number",
-    element: <Solve />
+    element: <SolveComponent />
   }
 ]);
