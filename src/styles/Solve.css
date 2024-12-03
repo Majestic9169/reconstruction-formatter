@@ -3,11 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 
   width: 90vh;
   height: 80vh;
   margin: 0 1rem;
-  padding: 2rem;
+  padding: 1rem;
 
   background-color: #fff;
   border-radius: 0.5rem;
@@ -42,6 +43,17 @@
   width: 90%;
   border-radius: 0.5rem;
   padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scram-bar {
+  padding: 0.3rem;
+  font-weight: 900;
+  font-size: 1.1rem;
 }
 
 .stats-container {

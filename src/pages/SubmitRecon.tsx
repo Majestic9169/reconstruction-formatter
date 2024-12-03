@@ -87,8 +87,8 @@ export const Submit = () => {
       <div className="submit-container">
         <div className="link-container">
           {reconstruction.solves.map((solve, i) => (
-            <Link to={"/solve/" + (i + 1).toString()} state={{ ReconDetails, solve }}>
-              <button className="link-button">
+            <Link to={"/solve/" + (i + 1).toString()} state={{ ReconDetails, solve, reconstruction }}>
+              <button className="link-button" id={`solve-${i}-button`}>
                 Solve {i + 1}
               </button>
             </Link>
