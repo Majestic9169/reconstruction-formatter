@@ -85,6 +85,15 @@ export const Submit = () => {
   return (
     <div className="submit-page">
       <div className="submit-container">
+        <div className="link-container">
+          {reconstruction.solves.map((solve, i) => (
+            <Link to={"/solve/" + (i + 1).toString()} state={{ ReconDetails, solve }}>
+              <button className="link-button">
+                Solve {i + 1}
+              </button>
+            </Link>
+          ))}
+        </div>
         <div className="form-container">
           <div className="left-form-container">
             {inputFields.map(({ key, label, type, options }) => (
@@ -123,11 +132,6 @@ export const Submit = () => {
           </button>
         </div>
       </div>
-      {reconstruction.solves.map((solve, i) => (
-        <Link to={"/solve/" + (i + 1).toString()} state={{ ReconDetails, solve }}>
-          Solve {i + 1}
-        </Link>
-      ))}
-    </div>
+    </div >
   )
 }
