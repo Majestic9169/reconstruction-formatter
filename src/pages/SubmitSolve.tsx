@@ -1,27 +1,31 @@
 import React from "react";
 import "../styles/Solve.css";
-import { ReconDetails, Solve } from "../utils/types";
+import { useLocation, useParams } from "react-router-dom";
 
-interface Props {
-  details: ReconDetails,
-  solve: Solve
-}
+export const SolveComponent: React.FC = () => {
 
-export const SolveComponent: React.FC<Props> = (props) => {
+  const location = useLocation()
+  const { ReconDetails, solve } = location.state;
 
+  const index = useParams().number;
+
+  const solveTitle = `${index}. ${solve.time} - ${ReconDetails.event} - solved by ${ReconDetails.solver} at ${ReconDetails.competition}`
 
   return (
     <div className="solve-submit-page">
       <div className="top-bar">
-        top-bar
+        {solveTitle}
+      </div>
+      <div className="scram-bar">
+        {solve.scram}
       </div>
       <div className="input-container">
         <div className="left-panel">
-          left-panel
+          splits
           <textarea className="splits-input" />
         </div>
         <div className="right-panel">
-          right-panel
+          reconstruction
           <textarea className="reconstruction-input" />
         </div>
       </div>

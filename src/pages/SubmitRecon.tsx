@@ -2,7 +2,7 @@ import { useState } from "react";
 import { DETAIL_KEYS, Events, Recon, ReconDetails, Reconstruction, Solve } from "../utils/types";
 import "../styles/Submit.css";
 import { InputField } from "../components/InputFields";
-import { cubingMoves } from "../constants";
+import { Link } from "react-router-dom";
 
 export const Submit = () => {
   const [ReconDetails, setReconDetails] = useState<ReconDetails>({
@@ -123,6 +123,11 @@ export const Submit = () => {
           </button>
         </div>
       </div>
+      {reconstruction.solves.map((solve, i) => (
+        <Link to={"/solve/" + (i + 1).toString()} state={{ ReconDetails, solve }}>
+          Solve {i + 1}
+        </Link>
+      ))}
     </div>
   )
 }
