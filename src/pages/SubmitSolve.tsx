@@ -40,11 +40,19 @@ export const SolveComponent: React.FC = () => {
       <div className="input-container">
         <div className="left-panel">
           splits
-          <textarea className="splits-input" />
+          <textarea
+            cols={20}
+            rows={15}
+            className="splits-input"
+          />
         </div>
         <div className="right-panel">
           reconstruction
-          <textarea className="reconstruction-input" />
+          <textarea
+            cols={45}
+            rows={15}
+            className="reconstruction-input"
+          />
         </div>
       </div>
       <div className="button-container">
@@ -64,6 +72,10 @@ export const SolveComponent: React.FC = () => {
       {submitted ? (
         <div className="stats-container">
           stats
+          <table>
+            <thead>
+            </thead>
+          </table>
         </div>
       ) : (<></>)}
     </div>

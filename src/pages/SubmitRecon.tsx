@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { DETAIL_KEYS, Events, Recon, ReconDetails, Reconstruction, Solve } from "../utils/types";
+import { useEffect, useState } from "react";
+import { DETAIL_KEYS, Events, ReconDetails, Reconstruction } from "../utils/types";
 import "../styles/Submit.css";
 import { InputField } from "../components/InputFields";
 import { Link } from "react-router-dom";
@@ -82,6 +82,10 @@ export const Submit = () => {
     { key: "reconstructor", label: "Reconstructed by", type: "text" },
   ];
 
+  useEffect(() => {
+    window.sessionStorage.setItem("dump", csTimerDump);
+  }, [csTimerDump])
+
   return (
     <div className="submit-page">
       <div className="submit-container">
@@ -112,7 +116,7 @@ export const Submit = () => {
             <textarea
               className="cstimer-dump"
               placeholder="CSTimer Dump"
-              value={csTimerDump}
+              value={csTimerDump || window.sessionStorage.getItem("dump")!}
               onChange={(e) => setCSTimerDump(e.target.value)}
             />
           </div>
