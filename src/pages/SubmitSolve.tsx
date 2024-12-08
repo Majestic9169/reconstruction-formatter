@@ -7,6 +7,8 @@ import { HighlightButton, resetAllButton } from "../utils/buttonHighlight";
 export const SolveComponent: React.FC = () => {
 
   const [submitted, setSubmitted] = useState(false);
+  const [splitsInput, setSplitsInput] = useState<string>("");
+  const [reconstructionInput, setReconInput] = useState<string>("")
 
   const location = useLocation()
   const { ReconDetails, solve, reconstruction } = location.state;
@@ -19,6 +21,17 @@ export const SolveComponent: React.FC = () => {
     resetAllButton(reconstruction.solves.length);
     HighlightButton(`solve-${index}-button`);
   }, [index])
+
+  const handleSubmit = () => {
+    const splits = splitsInput.trim().split('\n').map(split => Number(split));
+    if (splits.length !== 7) {
+      console.error("please enter splits in the correct format")
+    }
+    const stepsHelper = reconstructionInput.trim().split('\n');
+    const steps = stepsHelper.map((step) => step.trim().split('//')[0].trim());
+    console.log(splits);
+    console.log(steps);
+  }
 
   return (
     <div className="solve-submit-page">
@@ -44,6 +57,9 @@ export const SolveComponent: React.FC = () => {
             cols={20}
             rows={15}
             className="splits-input"
+            value={splitsInput}
+            onChange={e => setSplitsInput(e.target.value)}
+            placeholder="Paste splits"
           />
         </div>
         <div className="right-panel">
@@ -52,19 +68,29 @@ export const SolveComponent: React.FC = () => {
             cols={45}
             rows={15}
             className="reconstruction-input"
+            value={reconstructionInput}
+            onChange={e => setReconInput(e.target.value)}
+            placeholder="Paste recon"
           />
         </div>
       </div>
       <div className="button-container">
         <button
           className="submit"
-          onClick={() => setSubmitted(true)}
+          onClick={() => {
+            setSubmitted(true);
+            handleSubmit();
+          }}
         >
           Submit
         </button>
         <button
           className="reset"
-          onClick={() => setSubmitted(false)}
+          onClick={() => {
+            setSubmitted(false);
+            setSplitsInput("");
+            setReconInput("");
+          }}
         >
           Reset
         </button>

@@ -38,3 +38,19 @@ export interface Reconstruction {
   details: ReconDetails;
   solves: Solve[];
 }
+
+export type Step = {
+  STM: number;
+  ETM: number;
+  time: number;
+}
+
+export type Statistic = {
+  STM: number;
+  ETM: number;
+  time: number;
+  STPS: number;
+  ETPS: number;
+  Percent: number;
+  Name: string;
+}
