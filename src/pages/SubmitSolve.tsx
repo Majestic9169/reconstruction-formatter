@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Solve.css";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { Solve } from "../utils/types";
+import { Solve, Statistic } from "../utils/types";
 import { HighlightButton, resetAllButton } from "../utils/buttonHighlight";
+import { StatsGen } from "../utils/Statgen";
 
 export const SolveComponent: React.FC = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [splitsInput, setSplitsInput] = useState<string>("");
   const [reconstructionInput, setReconInput] = useState<string>("")
+  const [stats, setStats] = useState<Statistic[]>([]);
 
   const location = useLocation()
   const { ReconDetails, solve, reconstruction } = location.state;
@@ -29,8 +31,8 @@ export const SolveComponent: React.FC = () => {
     }
     const stepsHelper = reconstructionInput.trim().split('\n');
     const steps = stepsHelper.map((step) => step.trim().split('//')[0].trim());
-    console.log(splits);
-    console.log(steps);
+    setStats(StatsGen(splits, steps, ReconDetails.fps, solve.time));
+    console.log(stats);
   }
 
   return (

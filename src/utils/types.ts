@@ -52,5 +52,4 @@ export type Statistic = {
   STPS: number;
   ETPS: number;
   Percent: number;
-  Name: string;
 }
