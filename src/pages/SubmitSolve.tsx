@@ -54,7 +54,7 @@ export const SolveComponent: React.FC = () => {
         <div className="left-panel">
           splits
           <textarea
-            cols={20}
+            cols={10}
             rows={15}
             className="splits-input"
             value={splitsInput}
@@ -65,7 +65,7 @@ export const SolveComponent: React.FC = () => {
         <div className="right-panel">
           reconstruction
           <textarea
-            cols={45}
+            cols={55}
             rows={15}
             className="reconstruction-input"
             value={reconstructionInput}
