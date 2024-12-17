@@ -35,6 +35,8 @@ export const SolveComponent: React.FC = () => {
     console.log(stats);
   }
 
+  const stepNames = ["F2L", "LL", "Cross+1", "OLS", "PLL"]
+
   return (
     <div className="solve-submit-page">
       <div className="link-container">
@@ -54,10 +56,9 @@ export const SolveComponent: React.FC = () => {
       </div>
       <div className="input-container">
         <div className="left-panel">
-          splits
           <textarea
             cols={10}
-            rows={15}
+            rows={10}
             className="splits-input"
             value={splitsInput}
             onChange={e => setSplitsInput(e.target.value)}
@@ -65,10 +66,9 @@ export const SolveComponent: React.FC = () => {
           />
         </div>
         <div className="right-panel">
-          reconstruction
           <textarea
             cols={55}
-            rows={15}
+            rows={10}
             className="reconstruction-input"
             value={reconstructionInput}
             onChange={e => setReconInput(e.target.value)}
@@ -99,10 +99,29 @@ export const SolveComponent: React.FC = () => {
       </div>
       {submitted ? (
         <div className="stats-container">
-          stats
-          <table>
+          <table className="solve-stat-table">
             <thead>
+              <th> </th>
+              <th> Time </th>
+              <th> Split </th>
+              <th> STM </th>
+              <th> STPS </th>
+              <th> ETM </th>
+              <th> ETPS </th>
             </thead>
+            <tbody>
+              {stats.map((stat, i) => (
+                <tr>
+                  <th> {stepNames[i]} </th>
+                  <td> {stat.time.toFixed(2)} </td>
+                  <td> {stat.Percent.toFixed(2)} </td>
+                  <td> {stat.STM} </td>
+                  <td> {stat.STPS.toFixed(2)} </td>
+                  <td> {stat.ETM} </td>
+                  <td> {stat.ETPS.toFixed(2)} </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
       ) : (<></>)}

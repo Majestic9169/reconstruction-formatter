@@ -23,7 +23,7 @@
   width: 100%;
   padding: 0rem 2rem;
 
-  height: 300px;
+  height: 200px;
 }
 
 .left-panel {
@@ -65,10 +65,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 1rem;
 }
 
 .reconstruction-input,
 .splits-input {
   resize: none;
   border-radius: 0.5rem;
+}
+
+.solve-stat-table {
+  border: 1px solid;
+  width: 60%;
+  border-collapse: collapse;
+}
+
+.solve-stat-table td,
+th {
+  border: 1px solid #000;
 }
