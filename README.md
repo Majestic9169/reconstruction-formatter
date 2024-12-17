@@ -28,7 +28,7 @@
 <!-- - [Deployment](#deployment) -->
 <!-- - [Usage](#usage) -->
 <!-- - [Built Using](#built_using) -->
-<!-- - [TODO](../TODO.md) -->
+- [TODO](../TODO.md)
 <!-- - [Contributing](../CONTRIBUTING.md) -->
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
@@ -132,6 +132,18 @@ pnpm run dev
 - [React](https://reactjs.dev)
 - And [many more](./package.json).
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## TODO
+
+- [ ] State Management with Redux
+  - this is important because
+    - need to be able to calculate averages and stuff, and don't want to deal with 
+      passsing state around
+    - want to learn redux
+- [ ] Make report with react-pdf
+  - options for detailed/simple/critique etc. i.e. multiple templates
+- [ ] update documentation with proper input format
+- [ ] database integrations eventually?
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@Majestic9169](https://github.com/Majestic9169) - Idea & Initial work
